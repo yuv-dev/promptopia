@@ -11,12 +11,12 @@ const Nav = () => {
     const [toggleDropdown, setToggleDropdown] = useState(false);
 
     useEffect(()=> {
-        const setProvider = async () =>{
+        const setupProvider = async () =>{
            const response  =  await getProviders();
            setProviders(response);
         } 
 
-        setProvider();
+        setupProvider();
     }, []);
 
 
@@ -43,7 +43,7 @@ const Nav = () => {
                 </Link> 
                 <button type='button' onClick={signOut} className='outline_btn'>Sign Out</button>
                 <Link href="/profile">
-                <Image src="/assets/images/logo.svg" alt="Promptopia Logo" 
+                <Image src={session?.user.image} alt="Promptopia Logo" 
         width={37}
         height={37}
         className='object-contain' />
@@ -61,6 +61,7 @@ const Nav = () => {
                     }}
                     className='black_btn'
                     >
+                    Sign In
                     </button>
                 ))
             }
