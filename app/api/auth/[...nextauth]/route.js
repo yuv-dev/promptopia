@@ -25,6 +25,7 @@ const handler = NextAuth({
       try {
         //serverless -> lambda -> dynamodb
         await connectToDB();
+        console.log("connect");
 
         //check if a user ralready exists
         const userExists = await User.findOne({ email: profile.email });
@@ -32,10 +33,12 @@ const handler = NextAuth({
         if (!userExists) {
           await User.create({
             email: profile.email,
-            username: profile.name.replace(" ", "").toLowerCase(),
+            username: profile.name.replace(/\s/g, "").toLowerCase(),
             image: profile.picture,
           });
         }
+        return true;
+
       } catch (error) {
         console.log(error);
         return false;
