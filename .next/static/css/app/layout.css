@@ -557,9 +557,24 @@ video {
 .rounded-full{
   border-radius: 9999px;
 }
+.border-l{
+  border-left-width: 1px;
+}
+.border-l-indigo-800{
+  --tw-border-opacity: 1;
+  border-left-color: rgb(55 48 163 / var(--tw-border-opacity));
+}
 .bg-primary-orange{
   --tw-bg-opacity: 1;
   background-color: rgb(255 87 34 / var(--tw-bg-opacity));
+}
+.bg-red-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+.bg-sky-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 132 199 / var(--tw-bg-opacity));
 }
 .object-contain{
   object-fit: contain;
